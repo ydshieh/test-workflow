@@ -7,6 +7,7 @@ on:
 
 jobs:
   check_for_new_model:
+      if: ${{ github.event.pull_request.head.repo.full_name != github.repository }}
       runs-on: ubuntu-22.04
       name: Check if PR is a new model PR
       steps:
@@ -16,3 +17,5 @@ jobs:
             echo "${{ github.event.comment.body }}"
             echo "${{ github.event.pull_request.head.repo.full_name }}"
             echo "${{ github.repository }}"
+
+
