@@ -9,7 +9,7 @@ jobs:
   check_for_new_model:
       # 1st cond: forked repo. --> triggered
       # 2nd cond: if there is comment with matched string --> triggered
-      if: ${{ (github.event_name != 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository) || github.event.comment.body == 'bonbon' }}
+      if: ${{ (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository) || github.event.comment.body == 'bonbon' }}
       runs-on: ubuntu-22.04
       name: Check if PR is a new model PR
       steps:
