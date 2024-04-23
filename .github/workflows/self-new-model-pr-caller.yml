@@ -2,14 +2,12 @@ name: New model PR CI
 
 on:
   pull_request:
-  issue_comment:
-    types: [created]
 
 jobs:
   check_for_new_model:
       # 1st cond: forked repo. --> triggered (even if it is team member, and approve and run won't be there --> always run)
       # 2nd cond: if there is comment with matched string --> triggered
-      if: ${{ (github.event_name == 'pull_request' && github.event.pull_request.author_association != 'OWNER' && github.event.pull_request.author_association != 'MEMBER') || github.event.comment.body == 'bonbon' && (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER') }}
+      if: contains(github.event.pull_request.labels.*.name, 'run-slow')
       runs-on: ubuntu-22.04
       name: Check if PR is a new model PR
       steps:
