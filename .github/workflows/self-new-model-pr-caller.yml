@@ -13,3 +13,4 @@ jobs:
         - name: Check if there is new model
           run: |
             echo "Hello"
+            echo "${{ github.event.comment.body }}"
