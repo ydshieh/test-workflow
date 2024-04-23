@@ -1,0 +1,14 @@
+name: New model PR CI
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  check_for_new_model:
+      runs-on: ubuntu-22.04
+      name: Check if PR is a new model PR
+      steps:
+        - name: Check if there is new model
+          run: |
+            echo "Hello"
