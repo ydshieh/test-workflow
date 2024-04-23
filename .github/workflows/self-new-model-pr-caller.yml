@@ -2,7 +2,8 @@ name: New model PR CI
 
 on:
   pull_request:
-  push:
+  issue_comment:
+    types: [created]
 
 jobs:
   check_for_new_model:
