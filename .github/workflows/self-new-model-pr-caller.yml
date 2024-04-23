@@ -15,4 +15,4 @@ jobs:
             echo "Hello"
             echo "${{ github.event.comment.body }}"
             echo "${{ github.event.pull_request.head.repo.full_name }}"
-            echo "${{ github.repository }}
+            echo "${{ github.repository }}"
