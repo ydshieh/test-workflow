@@ -2,7 +2,6 @@ name: New model PR CI
 
 on:
   pull_request:
-  push:
   issue_comment:
     types: [created]
 
